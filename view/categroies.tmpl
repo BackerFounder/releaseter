@@ -1,0 +1,7 @@
+{{ range $label, $pulls := . }}
+### {{ $label }}
+---
+{{ range $idx, $pull := $pulls }}
+- {{ $pull.Title }} #{{ $pull.Number }}
+{{ end }}
+{{ end }}
