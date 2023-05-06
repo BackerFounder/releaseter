@@ -1,5 +1,8 @@
 name: 'Releaseter'
 description: 'Automate Release Draft generation with Releaster. Save time and ensure accuracy.'
+branding:
+  icon: github
+  color: orange
 
 inputs:
   github-token:
