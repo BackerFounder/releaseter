@@ -1,5 +1,12 @@
 # Releaster
 
+[![Go version](https://img.shields.io/badge/Go-%3E%3D1.19-blue)](https://golang.org/doc/go1.19)
+[![License](https://img.shields.io/badge/License-MIT-blue)](https://opensource.org/licenses/MIT)
+[![Release](https://img.shields.io/github/v/release/JZGoopi/releaseter)](https://github.com/JZGoopi/releaseter/releases)
+[![Code coverage](https://img.shields.io/codecov/c/github/JZGoopi/releaseter)](https://codecov.io/gh/JZGoopi/releaseter)
+[![Code quality](https://img.shields.io/lgtm/grade/go/github/JZGoopi/releaseter)](https://lgtm.com/projects/g/JZGoopi/releaseter/context:go)
+[![Last commit](https://img.shields.io/github/last-commit/JZGoopi/releaseter)](https://github.com/JZGoopi/releaseter/commits/main)
+
 Releaster is a GitHub Action that helps users generate release drafts from the latest release to the latest pull request. This tool is inspired by the configuration file of [release-drafter/release-drafter](https://github.com/release-drafter/release-drafter).
 
 ## Usage
