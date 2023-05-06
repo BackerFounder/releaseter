@@ -30,10 +30,6 @@ runs:
         JZGOOPI_REPEASETER_WS_PATH: ${{ github.workspace }}/JZGoopi/releaseter
       run: |
         cd $JZGOOPI_REPEASETER_WS_PATH
-        if [ "${{ runner.os }}" = "Linux" ]; then
-          ./bin/app-linux-amd64
-        else
-          go mod tidy
-          go run ./main.go
-        fi
+        go mod tidy
+        go run ./main.go
         rm -rf $JZGOOPI_PATH
