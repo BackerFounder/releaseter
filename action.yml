@@ -1,18 +1,15 @@
 name: 'releaseter'
 description: |
-  This GitHub Action automatically retrieves all Pull Requests from your last Release to the current time and organizes them into a Release Draft. You can customize the version number, tag, title, and content of the Release Draft by setting input parameters.
-  Using this Action saves you time in writing Release Drafts while ensuring their accuracy and completeness.
-
-  這個 GitHub Action 可以自動獲取你上一次 Release 到現在的所有 Pull Request，然後將這些 PR 整理成 Release Draft。你可以通過設置輸入參數來自定義 Release Draft 的版本號碼、標籤、標題和內容。
-  使用這個 Action 可以節省你編寫 Release Draft 的時間，同時保證 Release Draft 的準確性和完整性。
+  Releaster is a GitHub Action that automatically generates a Release Draft by retrieving all Pull Requests from your last Release to the current time. You can customize the version number, tag, title, and content of the Release Draft by setting input parameters.
+  This Action saves you time in writing Release Drafts while ensuring their accuracy and completeness.
 
 inputs:
   github-token:
     required: true
-    description: "操作 GITHUB 倉庫使用的 token"
+    description: "The token used to operate on the GitHub repository."
   config-path:
     default: "releaseter.yml"
-    description: "配置文件路徑"
+    description: "The path to the configuration file."
 
 runs:
   using: "composite"
