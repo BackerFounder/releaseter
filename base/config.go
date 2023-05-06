@@ -31,6 +31,8 @@ type Config struct {
 	CategoryOther *CategoryOther     `yaml:"category-other"`
 	TimeFormat    string             `yaml:"time-format"`
 	TimeLocation  string             `yaml:"time-location"`
+
+	ClearHistoryDraft bool `yaml:"clear-history-draft"`
 }
 
 var (

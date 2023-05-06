@@ -20,8 +20,11 @@ func main() {
 	template := view.GenCategoriesTemplate(lablePulls)
 
 	userInfo := base.GetUserInfo()
+	config := base.GetConfig()
 
-	api.DelReleases(userInfo.Repo, userInfo.Token, dao.GetAllReleaseDraftIds(userInfo))
+	if config.ClearHistoryDraft {
+		api.DelReleases(userInfo.Repo, userInfo.Token, dao.GetAllReleaseDraftIds(userInfo))
+	}
 	api.PostReleases(userInfo.Repo, userInfo.Token, model.GithubPostRelease{
 		TagName: data.GetTag(),
 		Name:    data.GetName(),
