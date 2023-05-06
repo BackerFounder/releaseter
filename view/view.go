@@ -6,7 +6,7 @@ import (
 	"text/template"
 )
 
-func GenCategoriesTemplate(lablePulls *model.LablePulls) string {
+func GenCategoriesTemplate(lablePulls model.LablePulls) string {
 
 	t, err := template.ParseFiles("./view/categroies.tmpl")
 	if err != nil {
@@ -14,7 +14,9 @@ func GenCategoriesTemplate(lablePulls *model.LablePulls) string {
 	}
 
 	var template bytes.Buffer
-	err = t.Execute(&template, lablePulls)
+	err = t.Execute(&template, map[string]any{
+		"lablePulls": lablePulls,
+	})
 	if err != nil {
 		panic(err)
 	}

@@ -2,23 +2,32 @@ package main
 
 import (
 	"test/api"
+	"test/base"
 	"test/dao"
+	"test/data"
 	"test/model"
 	"test/view"
+
+	_ "github.com/joho/godotenv/autoload"
 )
 
 func main() {
 
-	lablePulls := dao.GetNewPullWithLables()
+	base.Init()
+	data.Init()
+
+	lablePulls := data.GetNewPullWithLables()
 	template := view.GenCategoriesTemplate(lablePulls)
-	cnf := dao.GetConfig()
 
-	userInfo := dao.GetUserInfo()
+	userInfo := base.GetUserInfo()
+	config := base.GetConfig()
 
-	api.DelReleases(userInfo.Repo, userInfo.Token, dao.GetAllReleaseDraftIds())
+	if config.ClearHistoryDraft {
+		api.DelReleases(userInfo.Repo, userInfo.Token, dao.GetAllReleaseDraftIds(userInfo))
+	}
 	api.PostReleases(userInfo.Repo, userInfo.Token, model.GithubPostRelease{
-		TagName: cnf.TagTemplate,
-		Name:    cnf.NameTemplate,
+		TagName: data.GetTag(),
+		Name:    data.GetName(),
 		Body:    template,
 		Draft:   true,
 	})

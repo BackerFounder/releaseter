@@ -2,6 +2,7 @@ package dao
 
 import (
 	"test/api"
+	"test/base"
 	"test/model"
 )
 
@@ -10,21 +11,19 @@ var (
 	latestRelease *model.Release
 )
 
-func GetRelease() []*model.GithubGetRelease {
-	userInfo := GetUserInfo()
+func GetRelease(userInfo base.UserInfo) []*model.GithubGetRelease {
 	if releases == nil {
 		releases = api.GetRelease(userInfo.Repo, userInfo.Token)
 	}
 	return releases
 }
 
-func GetLatestRelease() *model.Release {
-	userInfo := GetUserInfo()
+func GetLatestRelease(userInfo base.UserInfo, tags []*model.Tag) *model.Release {
+
 	if latestRelease == nil {
 		originRelease := api.GetLatestRelease(userInfo.Repo, userInfo.Token)
-		originTags := api.GetTags(userInfo.Repo, userInfo.Token)
 
-		for _, tag := range originTags {
+		for _, tag := range tags {
 			if tag.Name == originRelease.TagName {
 				latestRelease = &model.Release{
 					Sha:       tag.Sha,
@@ -40,9 +39,9 @@ func GetLatestRelease() *model.Release {
 	return latestRelease
 }
 
-func GetAllReleaseDraftIds() []uint64 {
+func GetAllReleaseDraftIds(userInfo base.UserInfo) []uint64 {
 	var ids = make([]uint64, 0, 5)
-	for _, release := range GetRelease() {
+	for _, release := range GetRelease(userInfo) {
 		if release.Draft {
 			ids = append(ids, release.Id)
 		}

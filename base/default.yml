@@ -1,18 +1,21 @@
 name-template: '{{ $TIME_WORKFLOW }}'
 tag-template: 'v{{ $VERSION_NEXT_PATCH }}'
+
 categories:
   - title: '🚀 Features'
     labels:
       - 'feature'
-      - 'enhancement'
-      - 'feat: '
+      - 'feat'
   - title: '🐛 Bug Fixes'
     labels:
       - 'fix'
       - 'bugfix'
       - 'bug'
-  - title: '🧰 Maintenance'
-    label: 'chore'
+
+category-other:
+  show: false
+  title: "OTHER"
 
 time-format: '060102 15:04:05'
 time-location: 'Asia/Taipei'
+

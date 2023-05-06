@@ -2,73 +2,46 @@ package dao
 
 import (
 	"test/api"
+	"test/base"
+
 	"test/model"
 )
 
-func GetNewPulls() model.Pulls {
+var (
+	newPulls model.Pulls
+)
 
-	release := GetLatestRelease()
-	userInfo := GetUserInfo()
+func GetNewPulls(userInfo base.UserInfo, latestRelease *model.Release) model.Pulls {
 
-	var page uint64 = 1
-	var pulls = make(model.Pulls, 0, 50)
+	if newPulls == nil {
+		var page uint64 = 1
+		newPulls = make(model.Pulls, 0, 50)
 
-getpulls:
-	for {
-		pagePulls := api.GetPulls(userInfo.Repo, userInfo.Token, page)
+	getpulls:
+		for {
+			pagePulls := api.GetPulls(userInfo.Repo, userInfo.Token, page)
 
-		if len(pagePulls) == 0 {
-			break
-		}
-
-		for _, pull := range pagePulls {
-			if pull.MergeAt.IsZero() {
-				continue
+			// 如果空了表示沒了（之後可以改判斷 http header 的 link，這樣可以少一次請求）
+			if len(pagePulls) == 0 {
+				break
 			}
 
-			if pull.MergeAt.After(release.CreatedAt) {
-				pulls = append(pulls, pull)
-			} else {
-				break getpulls
-			}
-		}
-
-		page++
-	}
-	return pulls
-}
-
-func GetNewPullWithLables() *model.LablePulls {
-	pulls := GetNewPulls()
-	categories := GetConfig().Categories
-	lablePulls := make(model.LablePulls, len(categories))
-
-	for _, category := range categories {
-
-		lablePulls[category.Title] = make(model.Pulls, 0, 20)
-
-		for _, pull := range pulls {
-
-			for _, label := range pull.Labels {
-
-				if label.Name == category.Label {
-					lablePulls[category.Title] = append(lablePulls[category.Title], pull)
+			for _, pull := range pagePulls {
+				// 去除沒有被合併的
+				if pull.MergeAt.IsZero() {
 					continue
 				}
-
-				for _, cnfLabel := range category.Labels {
-					if label.Name == cnfLabel {
-						lablePulls[category.Title] = append(lablePulls[category.Title], pull)
-					}
+				// 直到最新的 release 之後
+				if pull.MergeAt.After(latestRelease.CreatedAt) {
+					newPulls = append(newPulls, pull)
+				} else {
+					break getpulls
 				}
 			}
-		}
 
-		if len(lablePulls[category.Title]) == 0 {
-			delete(lablePulls, category.Title)
+			page++
 		}
-
 	}
 
-	return &lablePulls
+	return newPulls
 }

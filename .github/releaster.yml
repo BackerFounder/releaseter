@@ -1,0 +1,13 @@
+name-template: 'aaa{{ $TIME_WORKFLOW }}'
+
+tag-template: 'v{{ $VERSION_NEXT_PATCH }}'
+tag-preRelease: "apple"
+tag-build: "banana"
+
+categories:
+
+category-other:
+  show: true
+  title: 'OTHERRR'
+
+clear-history-draft: true
