@@ -17,4 +17,10 @@ type GithubGetPull struct {
 }
 
 type Pulls []*GithubGetPull
-type LablePulls map[string]Pulls
+
+type LablePull struct {
+	Title string
+	Pulls Pulls
+}
+
+type LablePulls []LablePull
