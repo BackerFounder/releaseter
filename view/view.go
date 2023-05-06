@@ -2,8 +2,10 @@ package view
 
 import (
 	"bytes"
-	"test/model"
+
 	"text/template"
+
+	"github.com/JZGoopi/releaseter/model"
 )
 
 func GenCategoriesTemplate(lablePulls model.LablePulls) string {

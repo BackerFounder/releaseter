@@ -1,9 +1,9 @@
 package data
 
 import (
-	"test/base"
-	"test/dao"
-	"test/model"
+	"github.com/JZGoopi/releaseter/base"
+	"github.com/JZGoopi/releaseter/dao"
+	"github.com/JZGoopi/releaseter/model"
 )
 
 var (

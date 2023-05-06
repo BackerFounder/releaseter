@@ -1,8 +1,8 @@
 package data
 
 import (
-	"test/base"
-	"test/consts"
+	"github.com/JZGoopi/releaseter/base"
+	"github.com/JZGoopi/releaseter/consts"
 )
 
 var (

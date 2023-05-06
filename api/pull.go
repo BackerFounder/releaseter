@@ -4,7 +4,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"strconv"
-	"test/model"
+
+	"github.com/JZGoopi/releaseter/model"
 )
 
 func GetPulls(repo, token string, page uint64) []*model.GithubGetPull {

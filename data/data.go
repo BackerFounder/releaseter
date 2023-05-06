@@ -2,10 +2,13 @@ package data
 
 import (
 	"strings"
-	"test/base"
-	"test/consts"
-	"test/model"
+
+	"github.com/JZGoopi/releaseter/model"
+
 	"time"
+
+	"github.com/JZGoopi/releaseter/base"
+	"github.com/JZGoopi/releaseter/consts"
 )
 
 var (

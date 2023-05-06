@@ -1,4 +1,4 @@
-module test
+module github.com/JZGoopi/releaseter
 
 go 1.19
 

@@ -1,13 +1,12 @@
 package main
 
 import (
-	"test/api"
-	"test/base"
-	"test/dao"
-	"test/data"
-	"test/model"
-	"test/view"
-
+	"github.com/JZGoopi/releaseter/api"
+	"github.com/JZGoopi/releaseter/base"
+	"github.com/JZGoopi/releaseter/dao"
+	"github.com/JZGoopi/releaseter/data"
+	"github.com/JZGoopi/releaseter/model"
+	"github.com/JZGoopi/releaseter/view"
 	_ "github.com/joho/godotenv/autoload"
 )
 

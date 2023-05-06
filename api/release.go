@@ -4,7 +4,8 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"test/model"
+
+	"github.com/JZGoopi/releaseter/model"
 )
 
 func GetRelease(repo, token string) []*model.GithubGetRelease {

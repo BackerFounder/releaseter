@@ -3,7 +3,8 @@ package api
 import (
 	"encoding/json"
 	"fmt"
-	"test/model"
+
+	"github.com/JZGoopi/releaseter/model"
 )
 
 func GetTags(repo, token string) []*model.Tag {

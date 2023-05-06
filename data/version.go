@@ -3,11 +3,12 @@ package data
 import (
 	"regexp"
 	"strings"
-	"test/base"
-	"test/consts"
-	"test/dao"
-	"test/model"
-	"test/utils"
+
+	"github.com/JZGoopi/releaseter/base"
+	"github.com/JZGoopi/releaseter/consts"
+	"github.com/JZGoopi/releaseter/dao"
+	"github.com/JZGoopi/releaseter/model"
+	"github.com/JZGoopi/releaseter/utils"
 )
 
 const (

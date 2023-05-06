@@ -1,10 +1,10 @@
 package dao
 
 import (
-	"test/api"
-	"test/base"
+	"github.com/JZGoopi/releaseter/base"
 
-	"test/model"
+	"github.com/JZGoopi/releaseter/api"
+	"github.com/JZGoopi/releaseter/model"
 )
 
 var (

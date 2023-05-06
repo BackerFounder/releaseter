@@ -2,7 +2,8 @@ package model
 
 import (
 	"fmt"
-	"test/consts"
+
+	"github.com/JZGoopi/releaseter/consts"
 )
 
 type GithubGetTagWithCommit struct {
