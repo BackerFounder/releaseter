@@ -6,7 +6,7 @@ import (
 	"text/template"
 )
 
-func GenCategoriesTemplate(lablePulls *model.LablePulls) string {
+func GenCategoriesTemplate(lablePulls model.LablePulls) string {
 
 	t, err := template.ParseFiles("./view/categroies.tmpl")
 	if err != nil {
