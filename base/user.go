@@ -1,5 +1,7 @@
 package base
 
+import "os"
+
 type UserInfo struct {
 	Token string `yaml:"token"`
 	Repo  string `yaml:"repo"`
@@ -23,7 +25,7 @@ func GetUserInfo() UserInfo {
 
 func initUserInfo() {
 	userInfo = UserInfo{
-		Repo:  "JZGoopi/heybaybay-release-draft",          // os.Getenv("GITHUB_REPOSITORY")
-		Token: "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", // os.Getenv("GITHUB_TOKEN")
+		Repo:  os.Getenv("GITHUB_REPOSITORY"),
+		Token: os.Getenv("GITHUB_TOKEN"),
 	}
 }

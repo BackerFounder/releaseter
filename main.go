@@ -1,18 +1,18 @@
 package main
 
 import (
-	"os"
 	"test/api"
 	"test/base"
 	"test/dao"
 	"test/data"
 	"test/model"
 	"test/view"
+
+	_ "github.com/joho/godotenv/autoload"
 )
 
 func main() {
 
-	os.Setenv("JZGOOPI_REPEASETER_CONFIG_PATH", "releaster.yml")
 	base.Init()
 	data.Init()
 
