@@ -13,6 +13,7 @@ type GithubGetPull struct {
 	MergeAt        time.Time         `json:"merged_at"`
 	MergeCommitSHA string            `json:"merge_commit_sha"`
 	Labels         []*GithubGetLabel `json:"labels"`
+	Count          uint64
 }
 
 type Pulls []*GithubGetPull
