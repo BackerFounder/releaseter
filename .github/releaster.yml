@@ -1,5 +1,3 @@
-name-template: '{{ $TIME_WORKFLOW }}'
-tag-template: 'v{{ $VERSION_NEXT_PATCH }}'
 categories:
   - title: '🚀 Features'
     labels:
@@ -13,6 +11,3 @@ categories:
       - 'bug'
   - title: '🧰 Maintenance'
     label: 'chore'
-
-time-format: '060102 15:04:05'
-time-location: 'Asia/Taipei'

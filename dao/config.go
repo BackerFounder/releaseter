@@ -1,68 +1,61 @@
 package dao
 
-import (
-	"bytes"
-	"test/config"
-	"test/consts"
-	"test/model"
-	"time"
+// var (
+// 	defaultConfig *model.Config
+// 	userConfig    *model.Config
+// )
 
-	"gopkg.in/yaml.v3"
-)
+// func initUserConfig() {
+// 	userConfigByteData := config.GetConfig()
+// 	userConfig = &model.Config{}
+// 	err := yaml.Unmarshal(userConfigByteData, userConfig)
+// 	if err != nil {
+// 		panic(err)
+// 	}
+// 	initTimeSetting()
 
-var (
-	originConfigTxt []byte
-	originConfig    *model.Config
-	parsedConfig    *model.Config
-)
+// 	version := GetVersion(userConfig.TagTemplate)
+// 	initTagTemplate(version)
+// 	initNameTemplate(version)
+// }
 
-func getOriginConfigTxt() []byte {
-	if originConfigTxt == nil {
-		originConfigTxt = config.GetConfig()
-	}
-	return append(make([]byte, 0, len(originConfigTxt)), originConfigTxt...)
-}
+// func initTimeSetting() {
+// 	if userConfig.TimeLocation == "" {
+// 		userConfig.TimeLocation = defaultConfig.TimeLocation
+// 	}
 
-func GetOriginConfig() *model.Config {
-	if originConfig == nil {
-		originCnfData := getOriginConfigTxt()
-		originConfig = &model.Config{}
-		err := yaml.Unmarshal(originCnfData, originConfig)
-		if err != nil {
-			panic(err)
-		}
-	}
-	return originConfig
-}
+// 	if userConfig.TimeFormat == "" {
+// 		userConfig.TimeFormat = defaultConfig.TimeFormat
+// 	}
+// }
 
-func replaceConfigData(data []byte) []byte {
+// func initTagTemplate(version *model.TagVersion) {
+// 	tagTemplate := userConfig.TagTemplate
 
-	// 替換版本號
-	version := GetVersion()
-	for _, placeholder := range consts.GetVersionPlaceholders() {
-		data = bytes.Replace(data, []byte(placeholder), []byte(version.Join(placeholder, "", "")), -1)
-	}
+// 	if tagTemplate == consts.GetEmptyPlaceholder() {
+// 		userConfig.TagTemplate = ""
+// 		return
+// 	}
 
-	// 替換時間
-	loc, err := time.LoadLocation(originConfig.TimeLocation)
-	if err != nil {
-		loc, _ = time.LoadLocation("Asia/Taipei")
-	}
-	for placeholder, time := range consts.GetTimePlaceholders() {
-		data = bytes.Replace(data, []byte(placeholder), []byte(time.In(loc).Format(originConfig.TimeFormat)), -1)
-	}
-	return data
-}
+// 	if tagTemplate == "" {
+// 		tagTemplate = defaultConfig.TagTemplate
+// 	}
 
-func GetConfig() *model.Config {
-	if parsedConfig == nil {
-		originCnfData := getOriginConfigTxt()
-		originCnfData = replaceConfigData(originCnfData)
-		parsedConfig = &model.Config{}
-		err := yaml.Unmarshal(originCnfData, parsedConfig)
-		if err != nil {
-			panic(err)
-		}
-	}
-	return parsedConfig
-}
+// 	tagTemplate = replaceVersionPlaceholder(tagTemplate, version)
+// 	tagTemplate = replaceTimePlaceholder(tagTemplate)
+
+// 	userConfig.TagTemplate = tagTemplate
+// }
+
+// func initNameTemplate(version *model.TagVersion) {
+
+// }
+
+// func GetConfig() *model.Config {
+// 	return userConfig
+// }
+
+// func init() {
+// 	initDefaultConfig()
+// 	initUserConfig()
+// }
