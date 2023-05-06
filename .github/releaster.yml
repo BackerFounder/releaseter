@@ -1,16 +1,10 @@
+name-template: 'aaa{{ $TIME_WORKFLOW }}'
+
+tag-template: 'v{{ $VERSION_NEXT_PATCH }}'
+tag-preRelease: "apple"
+tag-build: "banana"
+
 categories:
-  - title: '🚀 Features'
-    labels:
-      - 'feature'
-      - 'enhancement'
-      - 'feat: '
-  - title: '🐛 Bug Fixes'
-    labels:
-      - 'fix'
-      - 'bugfix'
-      - 'bug'
-  - title: '🧰 Maintenance'
-    label: 'chore'
 
 category-other:
   show: true
