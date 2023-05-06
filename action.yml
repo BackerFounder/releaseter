@@ -1,7 +1,5 @@
-name: 'releaseter'
-description: |
-  Releaster is a GitHub Action that automatically generates a Release Draft by retrieving all Pull Requests from your last Release to the current time. You can customize the version number, tag, title, and content of the Release Draft by setting input parameters.
-  This Action saves you time in writing Release Drafts while ensuring their accuracy and completeness.
+name: 'Releaseter'
+description: 'Automate Release Draft generation with Releaster. Save time and ensure accuracy.'
 
 inputs:
   github-token:
