@@ -15,3 +15,5 @@ categories:
 category-other:
   show: true
   title: 'OTHERRR'
+
+clear-history-draft: true
