@@ -1,10 +1,19 @@
-name-template: 'aaa{{ $TIME_WORKFLOW }}'
+name-template: '{{ $TIME_WORKFLOW }}'
 
 tag-template: 'v{{ $VERSION_NEXT_PATCH }}'
-tag-preRelease: "apple"
-tag-build: "banana"
+tag-preRelease: ""
+tag-build: ""
 
 categories:
+  - title: '🚀 Features'
+    labels:
+      - 'feature'
+      - 'feat'
+  - title: '🐛 Bug Fixes'
+    labels:
+      - 'fix'
+      - 'bugfix'
+      - 'bug'
 
 category-other:
   show: true
