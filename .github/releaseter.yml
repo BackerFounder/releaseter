@@ -20,3 +20,5 @@ category-other:
   title: 'OTHERRR'
 
 clear-history-draft: true
+time-format: '06/01/02 15:04:05'
+time-location: 'Asia/Taipei'
