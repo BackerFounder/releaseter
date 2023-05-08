@@ -1,6 +1,6 @@
 name: 你行不行啊！我發現了一個 Bug ㄟ
-description: 回報 Bug 以便修復它！
-title: "[Bug]: "
+description: 你有沒有想過，這可能不是 BUG? 這是驚喜啊！
+title: "[Bug] "
 labels: ["bug"]
 assignees:
   - JZGoopi
@@ -8,17 +8,17 @@ body:
   - type: textarea
     id: summary
     attributes:
-      label: 快速描述
-      description: 簡要說明問題。
-      placeholder: "發生什麼事了，Bug？"
+      label: 安怎？
+      description: 簡單描述一下你被驚喜到的過程
+      placeholder: "當我按下 run workflow，螢幕跑出峮峮對著我跳炸裂"
     validations:
       required: true
 
   - type: dropdown
     id: version
     attributes:
-      label: 軟體版本
-      description: 您使用的是哪個版本的軟體？
+      label: "@版本號"
+      description: 哪個版本出現驚喜？
       options:
         - "1"
         - "1.0.0"
@@ -29,7 +29,7 @@ body:
     id: reproduction-link
     attributes:
       label: 最小重現連結
-      description: 如果您有連結可以幫助我理解問題，請提供。
+      description: 我需要簡單暴力的重現 code 連結，不然我可能會看到睡著
       placeholder: "https://www.pornhub.com"
     validations:
       required: false
@@ -38,11 +38,11 @@ body:
     id: steps
     attributes:
       label: 重現步驟
-      description: 我需要怎麼做才能看到問題？
+      description: 我需要怎麼做才能看到驚喜？
       placeholder: |
         1. 點擊連結
         2. 拿起一張面紙
-        3. 擦汗。
+        3. 擦汗
         4. ...
 
   - type: textarea
@@ -62,8 +62,8 @@ body:
   - type: textarea
     id: other
     attributes:
-      label: 其他相關資訊
-      description: 是否有其他資訊可以幫助我修復問題？ GitHub Actions 設定、專案目錄結構、Releaster.yml 設定等。
+      label: 其他
+      description: 有其他資訊可以幫助我修復問題？ GitHub Actions 設定、專案目錄結構、Releaster.yml 設定等，也可以臭罵我一頓其實，我臉皮很厚的。
       placeholder: |
         這是我的 Releaster.yml 設定！
 
