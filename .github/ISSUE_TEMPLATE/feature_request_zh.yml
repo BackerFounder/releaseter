@@ -1,6 +1,6 @@
 name: 我需要這個酷酷的功能
 description: 歹謝！無閒
-title: "[Feature] "
+title: ""
 labels: ["feature"]
 assignees:
   - JZGoopi
@@ -11,3 +11,13 @@ body:
       label: 安怎？
       description: 詳細描述你的願望，我會幫你轉達佛祖，等我哪天去台中搶轎搶贏的時候
       placeholder: "我想要送 JZ 一張信義區地契（如果是這種的，寄信給我，我馬上幫你實現）"
+
+  - type: textarea
+    id: api
+    attributes:
+      label: API 輪廓
+      description: 想像中如果實現後的 API 可以長什麼樣子？
+      placeholder: |
+        ```yaml
+        let-id-die: true
+        ```
