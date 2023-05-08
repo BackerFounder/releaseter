@@ -1,6 +1,5 @@
 name: Can you handle it? I found a bug!
 description: Have you considered that this might not be a bug? It could be a pleasant surprise!
-title: ""
 labels: ["bug"]
 assignees:
   - JZGoopi
