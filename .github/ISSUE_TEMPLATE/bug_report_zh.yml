@@ -1,0 +1,74 @@
+name: 你行不行啊！我發現了一個 Bug ㄟ
+description: 你有沒有想過，這可能不是 BUG? 這是驚喜啊！
+title: "[Bug] "
+labels: ["bug"]
+assignees:
+  - JZGoopi
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: 安怎？
+      description: 簡單描述一下你被驚喜到的過程
+      placeholder: "當我按下 run workflow，螢幕跑出峮峮對著我跳炸裂"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: version
+    attributes:
+      label: "@版本號"
+      description: 哪個版本出現驚喜？
+      options:
+        - "1"
+        - "1.0.0"
+    validations:
+      required: true
+
+  - type: input
+    id: reproduction-link
+    attributes:
+      label: 最小重現連結
+      description: 我需要簡單暴力的重現 code 連結，不然我可能會看到睡著
+      placeholder: "https://www.pornhub.com"
+    validations:
+      required: false
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 重現步驟
+      description: 我需要怎麼做才能看到驚喜？
+      placeholder: |
+        1. 點擊連結
+        2. 拿起一張面紙
+        3. 擦汗
+        4. ...
+
+  - type: textarea
+    id: expected-result
+    attributes:
+      label: 預期結果
+      description: 您原本預期會發生什麼事？
+      placeholder: "我以為我的汗是透明的"
+
+  - type: textarea
+    id: actual-result
+    attributes:
+      label: 實際結果
+      description: 實際發生了什麼事？
+      placeholder: "看起來有一點白色。"
+
+  - type: textarea
+    id: other
+    attributes:
+      label: 其他
+      description: 有其他資訊可以幫助我修復問題？ GitHub Actions 設定、專案目錄結構、Releaster.yml 設定等，也可以臭罵我一頓其實，我臉皮很厚的。
+      placeholder: |
+        這是我的 Releaster.yml 設定！
+
+        ```yaml
+        time-location: 'metaverse'
+        ```
+
+        **您的程式碼有太多 Bug 了，我阿罵來寫都寫得比你好！**

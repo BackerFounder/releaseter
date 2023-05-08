@@ -1,0 +1,74 @@
+name: Can you handle it? I found a bug!
+description: Have you considered that this might not be a bug? It could be a pleasant surprise!
+title: "[Bug] "
+labels: ["bug"]
+assignees:
+  - JZGoopi
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: Briefly describe the process that surprised you.
+      placeholder: "When I click 'run workflow', the screen shows Teletubbies asking me: Oh~ Who lives in a pineapple under the sea?"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: version
+    attributes:
+      label: "@Version"
+      description: Which version did the surprise appear in?
+      options:
+        - "1"
+        - "1.0.0"
+    validations:
+      required: true
+
+  - type: input
+    id: reproduction-link
+    attributes:
+      label: Link to Minimal Reproduction
+      description: I need a simple code reproduction link, otherwise I might fall asleep.
+      placeholder: "https://www.pornhub.com"
+    validations:
+      required: false
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction Steps
+      description: What do I need to do to see the surprise?
+      placeholder: |
+        1. Click the link
+        2. Pick up a piece of tissue paper
+        3. Wipe off sweat.
+        4. ...
+
+  - type: textarea
+    id: expected-result
+    attributes:
+      label: What Should Happen
+      description: What did you expect to happen instead?
+      placeholder: "I thought my sweat was transparent"
+
+  - type: textarea
+    id: actual-result
+    attributes:
+      label: What Actually Happened
+      description: What actually went down?
+      placeholder: "It looks a little white."
+
+  - type: textarea
+    id: other
+    attributes:
+      label: Anything Else I Should Know?
+      description: Is there any other information that can help me fix the bug? GitHub Actions settings, project directory structure, Releaster.yml settings, etc. You can also curse at me, I have a thick skin.
+      placeholder: |
+        Here's my Releaster.yml setup!
+
+        ```yaml
+        time-location: 'metaverse'
+        ```
+
+        **Your code is so buggy that even my great-grandmother could write better!**
