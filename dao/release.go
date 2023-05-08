@@ -24,6 +24,11 @@ func GetLatestRelease(userInfo base.UserInfo, tags []*model.Tag) *model.Release 
 	if latestRelease == nil {
 		originRelease := api.GetLatestRelease(userInfo.Repo, userInfo.Token)
 
+		if originRelease.CreatedAt.IsZero() {
+			latestRelease = &model.Release{}
+			return latestRelease
+		}
+
 		for _, tag := range tags {
 			if tag.Name == originRelease.TagName {
 				latestRelease = &model.Release{
@@ -34,7 +39,8 @@ func GetLatestRelease(userInfo base.UserInfo, tags []*model.Tag) *model.Release 
 				return latestRelease
 			}
 		}
-		panic("找不到 tags")
+
+		panic("Release 沒有匹配的 TAG")
 	}
 
 	return latestRelease
