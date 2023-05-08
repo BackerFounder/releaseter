@@ -63,6 +63,7 @@ func initConfig() {
 	if err != nil {
 		fmt.Println("您沒有提供配置文件，即將使用默認配置")
 		userConfig = defaultConfig
+		return
 	}
 	userConfig = Config{}
 	err = yaml.Unmarshal(cnf, &userConfig)
