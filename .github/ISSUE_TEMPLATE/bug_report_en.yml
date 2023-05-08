@@ -1,6 +1,6 @@
-name: Uh-oh, I Found a Bug
-description: Report a bug so I can squash it!
-title: "[Bug]: "
+name: Can you handle it? I found a bug!
+description: Have you considered that this might not be a bug? It could be a pleasant surprise!
+title: "[Bug] "
 labels: ["bug"]
 assignees:
   - JZGoopi
@@ -8,17 +8,17 @@ body:
   - type: textarea
     id: summary
     attributes:
-      label: Quick and Dirty Summary
-      description: Give me a brief rundown of the issue.
-      placeholder: "What's up, bug?"
+      label: What happened?
+      description: Briefly describe the process that surprised you.
+      placeholder: "When I click 'run workflow', the screen shows Teletubbies asking me: Oh~ Who lives in a pineapple under the sea?"
     validations:
       required: true
 
   - type: dropdown
     id: version
     attributes:
-      label: Software Version
-      description: Which version of our software are you running?
+      label: "@Version"
+      description: Which version did the surprise appear in?
       options:
         - "1"
         - "1.0.0"
@@ -29,7 +29,7 @@ body:
     id: reproduction-link
     attributes:
       label: Link to Minimal Reproduction
-      description: Got a link that'll help me understand what's happening?
+      description: I need a simple code reproduction link, otherwise I might fall asleep.
       placeholder: "https://www.pornhub.com"
     validations:
       required: false
@@ -38,7 +38,7 @@ body:
     id: steps
     attributes:
       label: Reproduction Steps
-      description: What do I need to do to see the bug in action?
+      description: What do I need to do to see the surprise?
       placeholder: |
         1. Click the link
         2. Pick up a piece of tissue paper
@@ -57,13 +57,13 @@ body:
     attributes:
       label: What Actually Happened
       description: What actually went down?
-      placeholder: "It seems to be a bit white-ish."
+      placeholder: "It looks a little white."
 
   - type: textarea
     id: other
     attributes:
       label: Anything Else I Should Know?
-      description: Got any other info that might help me fix the issue? GitHub Actions config, project directory structure, Releaster.yml settings, etc.
+      description: Is there any other information that can help me fix the bug? GitHub Actions settings, project directory structure, Releaster.yml settings, etc. You can also curse at me, I have a thick skin.
       placeholder: |
         Here's my Releaster.yml setup!
 
