@@ -1,0 +1,13 @@
+name: 我需要這個酷酷的功能
+description: 歹謝！無閒
+title: "[Feature] "
+labels: ["feature"]
+assignees:
+  - JZGoopi
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: 安怎？
+      description: 詳細描述你的願望，我會幫你轉達佛祖，等我哪天去台中搶轎搶贏的時候
+      placeholder: "我想要送 JZ 一張信義區地契（如果是這種的，寄信給我，我馬上幫你實現）"
