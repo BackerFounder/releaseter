@@ -6,8 +6,18 @@ assignees:
   - JZGoopi
 body:
   - type: textarea
-    id: problem
+    id: feature
     attributes:
       label: What feature?
       description: Please describe your request in detail. I will pass it on to Buddha.
       placeholder: "I want to give JZ a land deed in Xinyi District (If it's something like this, please send me a message and I'll help you make it happen immediately)"
+
+  - type: textarea
+    id: api
+    attributes:
+      label: What does the proposed API look like?
+      description: Provide code samples of how the API would work once implemented.
+      placeholder: |
+        ```yaml
+        let-id-die: true
+        ```
