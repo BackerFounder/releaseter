@@ -59,6 +59,7 @@ func GetNewPullWithLables() model.LablePulls {
 			if otherTitle == "" {
 				otherTitle = base.GetDefaultConfig().CategoryOther.Title
 			}
+
 			otherPulls := make(model.Pulls, 0, 20)
 			for _, pull := range pulls {
 				if pull.Count == 0 {
@@ -66,10 +67,12 @@ func GetNewPullWithLables() model.LablePulls {
 				}
 			}
 
-			labelPulls = append(labelPulls, model.LablePull{
-				Pulls: otherPulls,
-				Title: otherTitle,
-			})
+			if len(otherPulls) != 0 {
+				labelPulls = append(labelPulls, model.LablePull{
+					Pulls: otherPulls,
+					Title: otherTitle,
+				})
+			}
 		}
 	}
 
