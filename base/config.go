@@ -93,16 +93,6 @@ func initConfig() {
 			Title: defaultConfig.CategoryOther.Title,
 		}
 	}
-
-	// 測試用，記得刪掉
-	if userConfig.TagPreRelease == "" {
-		userConfig.TagPreRelease = defaultConfig.TagPreRelease
-	}
-
-	// 測試用，記得刪掉
-	if userConfig.TagBuild == "" {
-		userConfig.TagBuild = defaultConfig.TagBuild
-	}
 }
 
 func GetConfig() Config {

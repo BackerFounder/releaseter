@@ -33,12 +33,6 @@ func PostReleases(repo, token string, releaseData model.GithubPostRelease) {
 
 	url := fmt.Sprintf("https://api.github.com/repos/%s/releases", repo)
 	headers := genBaseHeaders(token)
-	// draft := model.GithubPostRelease{
-	// 	TagName: tagName,
-	// 	Name:    title,
-	// 	Body:    body,
-	// 	Draft:   true,
-	// }
 	jsonStr, err := json.Marshal(releaseData)
 	if err != nil {
 		panic(err)
