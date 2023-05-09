@@ -1,4 +1,4 @@
-name: Can you handle it? I found a bug!
+name: "[BUG REPORT EN] Can you handle it? I found a bug!"
 description: Have you considered that this might not be a bug? It could be a pleasant surprise!
 labels: ["bug"]
 assignees:

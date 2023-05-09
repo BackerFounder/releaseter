@@ -1,4 +1,4 @@
-name: 你行不行啊！我發現了一個 Bug ㄟ
+name: "[BUG REPORT ZH] 你行不行啊！我發現了一個 Bug ㄟ"
 description: 你有沒有想過，這可能不是 BUG? 這是驚喜啊！
 labels: ["bug"]
 assignees:
