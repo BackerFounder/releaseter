@@ -1,16 +1,6 @@
-## PR Summary
-
-Please provide a brief summary of your changes.
-
-## Changes Made
+## What are you doing
 
 Please describe the changes you made in detail.
-
-<!--
-    1. Change 1
-    2. Change 2
-    3. ...
--->
 
 ## Testing
 
