@@ -18,5 +18,5 @@ body:
       description: Provide code samples of how the API would work once implemented.
       placeholder: |
         ```yaml
-        let-id-die: true
+        let-it-die: true
         ```

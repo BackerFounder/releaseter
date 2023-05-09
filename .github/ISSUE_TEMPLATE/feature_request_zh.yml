@@ -18,5 +18,5 @@ body:
       description: 想像中如果實現後的 API 可以長什麼樣子？
       placeholder: |
         ```yaml
-        let-id-die: true
+        let-it-die: true
         ```
