@@ -22,16 +22,6 @@ Please describe how you tested your changes.
     3. ...
 -->
 
-## Related Issues
-
-Please list any related issues that this PR addresses.
-
-<!--
-    - Issue 1
-    - Issue 2
-    - ...
--->
-
 ## Checklist
 
 **What kind of change does this PR introduce?** (check at least one)
