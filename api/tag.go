@@ -10,8 +10,10 @@ import (
 func GetTags(repo, token string) []*model.Tag {
 	url := fmt.Sprintf("https://api.github.com/repos/%s/tags", repo)
 	headers := genBaseHeaders(token)
+	query := Querys{}
+	query["per_page"] = "100"
 
-	data := getData(url, headers, nil)
+	data := getData(url, headers, query)
 
 	var apiTags = make([]model.GithubGetTagWithCommit, 0, 100)
 	err := json.Unmarshal(data, &apiTags)
