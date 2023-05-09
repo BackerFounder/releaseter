@@ -1,0 +1,15 @@
+name: releaster
+on:
+  workflow_dispatch:
+
+jobs:
+  write-draft:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+      - uses: JZGoopi/releaseter@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
