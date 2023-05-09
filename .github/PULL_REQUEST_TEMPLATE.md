@@ -42,8 +42,8 @@ If yes, please describe the impact and migration path for existing applications:
 
 **The PR fulfills these requirements:**
 
-- [ ] It's submitted to the `master` branch
+- [ ] It's submitted to the `dev` branch
 - [ ] When resolving a specific issue, it's referenced in the PR's title (e.g. `fix #xxx[,#xxx]`, where "xxx" is the issue number)
-- [ ] My PR is based on the latest version of the `master` branch.
+- [ ] My PR is based on the latest version of the `dev` branch.
 
 ## Other Information
