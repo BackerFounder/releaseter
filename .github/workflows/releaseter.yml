@@ -1,4 +1,4 @@
-name: releaster
+name: releaseter
 on:
   workflow_dispatch:
 
