@@ -20,6 +20,11 @@ type CategoryOther struct {
 	Title string `yaml:"title"`
 }
 
+type ConfigExceptRelease struct {
+	Tag  string `yaml:"tag"`
+	Name string `yaml:"name"`
+}
+
 type Config struct {
 	NameTemplate string `yaml:"name-template"`
 
@@ -33,6 +38,8 @@ type Config struct {
 	TimeLocation  string             `yaml:"time-location"`
 
 	ClearHistoryDraft bool `yaml:"clear-history-draft"`
+
+	ExceptReleases []*ConfigExceptRelease `yaml:"except_releases"`
 }
 
 var (
