@@ -13,11 +13,11 @@ var (
 func GetNewPullWithLables() model.LablePulls {
 
 	if labelPulls == nil {
+		config := base.GetConfig()
 		tags := dao.GetTags(userInfo)
-		latestRelease := dao.GetLatestRelease(userInfo, tags)
+		latestRelease := dao.GetLatestRelease(userInfo, tags, config)
 		pulls := dao.GetNewPulls(userInfo, latestRelease)
 
-		config := base.GetConfig()
 		categories := config.Categories
 		labelPulls = make(model.LablePulls, 0, len(categories))
 

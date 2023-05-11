@@ -18,7 +18,3 @@ category-other:
 
 time-format: '060102 15:04:05'
 time-location: 'Asia/Taipei'
-
-# except_releases:
-#   - tag: 'v1.0.1'
-#     name: '230510 00:01:51'

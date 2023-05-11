@@ -8,7 +8,7 @@ import (
 	"github.com/JZGoopi/releaseter/model"
 )
 
-func GetRelease(repo, token string) []*model.GithubGetRelease {
+func GetReleases(repo, token string) []*model.GithubGetRelease {
 	url := fmt.Sprintf("https://api.github.com/repos/%s/releases", repo)
 	headers := genBaseHeaders(token)
 	query := Querys{}
