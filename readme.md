@@ -76,7 +76,13 @@ clear-history-draft: true
 
 time-format: '06/01/02 15:04:05'
 time-location: 'Asia/Taipei'
+
+# If you want to use the except_releases option, the tag of each item is required.
+except_releases:
+  - tag: 'v1.0.1'           # require
+    name: '230510 00:01:51' # option
 ```
+#### name-template && tag-template
 
 The `name-template` is the template for the release title. It supports several placeholders and defaults to `{{ $TIME_WORKFLOW }}`.
 
@@ -91,7 +97,13 @@ Both `name-template` and `tag-template` support the following placeholders:
 - `{{ $EMPTY }}`: an empty string
 - The version numbers follow [Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.html) as defined by GitHub, and Releaseter will use the latest tag that matches the `tag-template` as a baseline.
 
+
+#### tag-preRelease && tag-build
+
 `tag-preRelease` and `tag-build` are pre-release and build tags for [Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.html), respectively. They default to an empty string.
+
+
+#### categories
 
 `categories` is an array of categories, each with a title and a list of labels. If a pull request's labels match any of the specified labels, its title will be added to the corresponding category. The format will be:
 
@@ -102,12 +114,19 @@ Both `name-template` and `tag-template` support the following placeholders:
 - PR2
 ```
 
+
+#### category-other
+
 `category-other` controls whether to include pull requests that do not match any of the specified labels. It has two keys:
 
 - `show`: A boolean value that determines whether to include unmatched pull requests. The default value is `false`.
 - `title`: The title for the section that includes unmatched pull requests. The default value is `'OTHER'`.
 
+#### clear-history-draft
+
 `clear-history-draft` controls whether to clear existing drafts. It defaults to `false`.
+
+#### time-format
 
 `time-format` is the format for the time. It uses Golang's placeholder syntax and defaults to `'060102 15:04:05'`. The available placeholders are:
 
@@ -149,7 +168,21 @@ time-format: 'Mon, Jan 02 2006 15:04:05 -0700'
 This will produce a time string like `Fri, May 07 2023 10:30:00 -0700`, where `Fri` is the abbreviated weekday name, `May 07 2023` is the date, `10:30:00` is the time, and `-0700` is the timezone offset.
 
 
+#### time-location
+
 `time-location` Controls the timezone used for timestamps. The value must be a valid name from the IANA Time Zone database. The default value is `'Asia/Taipei'`.
+
+
+#### except_releases
+
+Releaseter is a tool that captures all PR content from the time of the latest release to the current trigger of the Github action. However, sometimes for various reasons, a new release is manually written before the actual version is released, causing the Releaseter to refresh the time and miss some PRs. In this case, you can use except_releases to exclude those releases and obtain the actual latest release time point you want to capture.
+
+You don't need to write this parameter for every release you want to exclude. You only need to write the ones you want to exclude from the latest release up until the desired release. Once Releaseter finds a release that is not excluded, it will recognize that release as the latest one you want to capture.
+
+- `tag`: The tag name bound to the release is a required parameter.
+- `name`: ，
+  - Optional parameters.
+  - The title of the release is provided as a parameter because there is a small possibility that two releases are bound to the same tag, but you only want to delete one of them. In this case, you can use the name parameter to more accurately find the release you want to delete.
 
 ## Conclusion
 

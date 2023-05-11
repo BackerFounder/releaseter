@@ -20,6 +20,11 @@ type CategoryOther struct {
 	Title string `yaml:"title"`
 }
 
+type ConfigExceptRelease struct {
+	Tag  string `yaml:"tag"`
+	Name string `yaml:"name"`
+}
+
 type Config struct {
 	NameTemplate string `yaml:"name-template"`
 
@@ -33,6 +38,8 @@ type Config struct {
 	TimeLocation  string             `yaml:"time-location"`
 
 	ClearHistoryDraft bool `yaml:"clear-history-draft"`
+
+	ExceptReleases []*ConfigExceptRelease `yaml:"except_releases"`
 }
 
 var (
@@ -92,16 +99,6 @@ func initConfig() {
 			Show:  defaultConfig.CategoryOther.Show,
 			Title: defaultConfig.CategoryOther.Title,
 		}
-	}
-
-	// 測試用，記得刪掉
-	if userConfig.TagPreRelease == "" {
-		userConfig.TagPreRelease = defaultConfig.TagPreRelease
-	}
-
-	// 測試用，記得刪掉
-	if userConfig.TagBuild == "" {
-		userConfig.TagBuild = defaultConfig.TagBuild
 	}
 }
 

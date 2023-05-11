@@ -12,29 +12,63 @@ var (
 	latestRelease *model.Release
 )
 
-func GetRelease(userInfo base.UserInfo) []*model.GithubGetRelease {
+func GetReleases(userInfo base.UserInfo) []*model.GithubGetRelease {
 	if releases == nil {
-		releases = api.GetRelease(userInfo.Repo, userInfo.Token)
+		releases = api.GetReleases(userInfo.Repo, userInfo.Token)
 	}
 	return releases
 }
 
-func GetLatestRelease(userInfo base.UserInfo, tags []*model.Tag) *model.Release {
+func GetLatestRelease(userInfo base.UserInfo, tags []*model.Tag, cfg base.Config) *model.Release {
 
 	if latestRelease == nil {
-		originRelease := api.GetLatestRelease(userInfo.Repo, userInfo.Token)
-		latestRelease = &model.Release{
-			Sha:       "",
-			TagName:   originRelease.TagName,
-			CreatedAt: originRelease.CreatedAt,
+
+		// 1. 找到最新的 Release
+		// 1.1 獲取所有 Release
+		releases := GetReleases(userInfo)
+		// 1.2 先初始化一個 Release
+		githubRelease := &model.GithubGetRelease{}
+
+		// 1.3 找出最新的 Release
+	find_latest_releaser:
+		for _, release := range releases {
+			// 1.3.1 如果是草稿，就剔除
+			if release.Draft {
+				continue
+			}
+
+			// 1.3.2 如果沒有需要過濾，就取第一個
+			if len(cfg.ExceptReleases) == 0 {
+				githubRelease = release
+				break
+			}
+
+			// 1.3.3 找到是否符合過濾規則的
+			for _, configExceptRelease := range cfg.ExceptReleases {
+				if release.TagName == configExceptRelease.Tag {
+					if configExceptRelease.Name == "" || configExceptRelease.Name == release.Name {
+						continue find_latest_releaser
+					}
+				}
+			}
+			// 1.3.4 如果不符合就表示找到了
+			githubRelease = release
+			break
 		}
 
-		if originRelease.CreatedAt.IsZero() {
+		// 2. 創建一個業務邏輯需要用的 Release
+		latestRelease = &model.Release{
+			Sha:       "",
+			TagName:   githubRelease.TagName,
+			CreatedAt: githubRelease.CreatedAt,
+		}
+
+		if githubRelease.CreatedAt.IsZero() {
 			return latestRelease
 		}
 
 		for _, tag := range tags {
-			if tag.Name == originRelease.TagName {
+			if tag.Name == githubRelease.TagName {
 				latestRelease.Sha = tag.Sha
 				return latestRelease
 			}
@@ -46,7 +80,7 @@ func GetLatestRelease(userInfo base.UserInfo, tags []*model.Tag) *model.Release 
 
 func GetAllReleaseDraftIds(userInfo base.UserInfo) []uint64 {
 	var ids = make([]uint64, 0, 5)
-	for _, release := range GetRelease(userInfo) {
+	for _, release := range GetReleases(userInfo) {
 		if release.Draft {
 			ids = append(ids, release.Id)
 		}

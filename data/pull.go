@@ -13,11 +13,11 @@ var (
 func GetNewPullWithLables() model.LablePulls {
 
 	if labelPulls == nil {
+		config := base.GetConfig()
 		tags := dao.GetTags(userInfo)
-		latestRelease := dao.GetLatestRelease(userInfo, tags)
+		latestRelease := dao.GetLatestRelease(userInfo, tags, config)
 		pulls := dao.GetNewPulls(userInfo, latestRelease)
 
-		config := base.GetConfig()
 		categories := config.Categories
 		labelPulls = make(model.LablePulls, 0, len(categories))
 
@@ -59,6 +59,7 @@ func GetNewPullWithLables() model.LablePulls {
 			if otherTitle == "" {
 				otherTitle = base.GetDefaultConfig().CategoryOther.Title
 			}
+
 			otherPulls := make(model.Pulls, 0, 20)
 			for _, pull := range pulls {
 				if pull.Count == 0 {
@@ -66,10 +67,12 @@ func GetNewPullWithLables() model.LablePulls {
 				}
 			}
 
-			labelPulls = append(labelPulls, model.LablePull{
-				Pulls: otherPulls,
-				Title: otherTitle,
-			})
+			if len(otherPulls) != 0 {
+				labelPulls = append(labelPulls, model.LablePull{
+					Pulls: otherPulls,
+					Title: otherTitle,
+				})
+			}
 		}
 	}
 
