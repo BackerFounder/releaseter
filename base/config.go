@@ -32,10 +32,11 @@ type Config struct {
 	TagPreRelease string `yaml:"tag-preRelease"`
 	TagBuild      string `yaml:"tag-build"`
 
-	Categories    []*ConfigCategorie `yaml:"categories"`
-	CategoryOther *CategoryOther     `yaml:"category-other"`
-	TimeFormat    string             `yaml:"time-format"`
-	TimeLocation  string             `yaml:"time-location"`
+	Categories           []*ConfigCategorie `yaml:"categories"`
+	CategoryOther        *CategoryOther     `yaml:"category-other"`
+	CategoryExceptLables []string           `yaml:"category-except-lables"`
+	TimeFormat           string             `yaml:"time-format"`
+	TimeLocation         string             `yaml:"time-location"`
 
 	ClearHistoryDraft bool `yaml:"clear-history-draft"`
 
