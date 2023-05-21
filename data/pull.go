@@ -25,22 +25,22 @@ func GetNewPullWithLables() model.LablePulls {
 
 			categoryPulls := make(model.Pulls, 0, 20)
 
+		foreachPulls:
 			for _, pull := range pulls {
 
-			findLable:
 				for _, label := range pull.Labels {
 
 					if label.Name == category.Label {
 						categoryPulls = append(categoryPulls, pull)
 						pull.Count++
-						continue findLable
+						continue foreachPulls
 					}
 
 					for _, cnfLabel := range category.Labels {
 						if label.Name == cnfLabel {
 							categoryPulls = append(categoryPulls, pull)
 							pull.Count++
-							break findLable
+							continue foreachPulls
 						}
 					}
 				}

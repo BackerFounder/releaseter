@@ -6,8 +6,8 @@ tag-build: ""
 
 categories:
   - title: '🚀 Features'
+    label: 'feature'
     labels:
-      - 'feature'
       - 'feat'
   - title: '🐛 Bug Fixes'
     labels:
