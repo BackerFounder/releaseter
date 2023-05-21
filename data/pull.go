@@ -33,7 +33,7 @@ func GetNewPullWithLables() model.LablePulls {
 				}
 
 				for _, label := range pull.Labels {
-					for _, exceptLable := range config.CategoryExceptLables {
+					for _, exceptLable := range config.CategoryExceptLabels {
 						if label.Name == exceptLable {
 							pull.NoRelease = true
 							continue foreachPulls

@@ -34,7 +34,7 @@ type Config struct {
 
 	Categories           []*ConfigCategorie `yaml:"categories"`
 	CategoryOther        *CategoryOther     `yaml:"category-other"`
-	CategoryExceptLables []string           `yaml:"category-except-lables"`
+	CategoryExceptLabels []string           `yaml:"category-except-labels"`
 	TimeFormat           string             `yaml:"time-format"`
 	TimeLocation         string             `yaml:"time-location"`
 
