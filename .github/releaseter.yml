@@ -6,9 +6,9 @@ tag-build: ""
 
 categories:
   - title: '🚀 Features'
+    lable: 'feat'
     labels:
       - 'feature'
-      - 'feat'
   - title: '🐛 Bug Fixes'
     labels:
       - 'fix'
