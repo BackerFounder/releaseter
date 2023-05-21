@@ -14,6 +14,7 @@ type GithubGetPull struct {
 	MergeCommitSHA string            `json:"merge_commit_sha"`
 	Labels         []*GithubGetLabel `json:"labels"`
 	Count          uint64
+	NoRelease      bool
 }
 
 type Pulls []*GithubGetPull

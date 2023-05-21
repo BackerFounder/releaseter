@@ -19,6 +19,10 @@ category-other:
   show: true
   title: 'OTHER'
 
+category-except-lables:
+  - wont_release
+  - documentation
+
 clear-history-draft: true
 time-format: '060102 15:04:05'
 time-location: 'Asia/Taipei'
