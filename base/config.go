@@ -40,6 +40,7 @@ type Config struct {
 	ClearHistoryDraft bool `yaml:"clear-history-draft"`
 
 	ExceptReleases []*ConfigExceptRelease `yaml:"except_releases"`
+	ExceptKeyword  string                 `yaml:"except_keyword"`
 }
 
 var (
