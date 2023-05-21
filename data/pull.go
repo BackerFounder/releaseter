@@ -33,7 +33,7 @@ func GetNewPullWithLables() model.LablePulls {
 					if label.Name == category.Label {
 						categoryPulls = append(categoryPulls, pull)
 						pull.Count++
-						continue findLable
+						break findLable
 					}
 
 					for _, cnfLabel := range category.Labels {
