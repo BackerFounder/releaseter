@@ -1,6 +1,8 @@
 package dao
 
 import (
+	"strings"
+
 	"github.com/JZGoopi/releaseter/base"
 
 	"github.com/JZGoopi/releaseter/api"
@@ -38,7 +40,7 @@ func GetLatestRelease(userInfo base.UserInfo, tags []*model.Tag, cfg base.Config
 			}
 
 			// 1.3.2 如果沒有需要過濾，就取第一個
-			if len(cfg.ExceptReleases) == 0 {
+			if len(cfg.ExceptReleases) == 0 && cfg.ExceptKeyword == "" {
 				githubRelease = release
 				break
 			}
@@ -51,6 +53,11 @@ func GetLatestRelease(userInfo base.UserInfo, tags []*model.Tag, cfg base.Config
 					}
 				}
 			}
+
+			if cfg.ExceptKeyword != "" && strings.Contains(release.Name, cfg.ExceptKeyword) {
+				continue find_latest_releaser
+			}
+
 			// 1.3.4 如果不符合就表示找到了
 			githubRelease = release
 			break
