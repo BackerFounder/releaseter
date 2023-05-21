@@ -19,7 +19,7 @@ category-other:
   show: true
   title: 'OTHER'
 
-category-except-lables:
+category-except-labels:
   - wont_release
   - documentation
 
