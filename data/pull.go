@@ -28,6 +28,10 @@ func GetNewPullWithLables() model.LablePulls {
 		foreachPulls:
 			for _, pull := range pulls {
 
+				if pull.NoRelease {
+					continue foreachPulls
+				}
+
 				for _, label := range pull.Labels {
 					for _, exceptLable := range config.CategoryExceptLables {
 						if label.Name == exceptLable {
