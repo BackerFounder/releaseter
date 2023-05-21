@@ -29,6 +29,15 @@ func GetNewPullWithLables() model.LablePulls {
 			for _, pull := range pulls {
 
 				for _, label := range pull.Labels {
+					for _, exceptLable := range config.CategoryExceptLables {
+						if label.Name == exceptLable {
+							pull.NoRelease = true
+							continue foreachPulls
+						}
+					}
+				}
+
+				for _, label := range pull.Labels {
 
 					if label.Name == category.Label {
 						categoryPulls = append(categoryPulls, pull)
@@ -62,7 +71,7 @@ func GetNewPullWithLables() model.LablePulls {
 
 			otherPulls := make(model.Pulls, 0, 20)
 			for _, pull := range pulls {
-				if pull.Count == 0 {
+				if pull.Count == 0 && !pull.NoRelease {
 					otherPulls = append(otherPulls, pull)
 				}
 			}
