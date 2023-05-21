@@ -72,6 +72,10 @@ category-other:
   show: true
   title: 'OTHERRR'
 
+category-except-labels:
+  - wont_release
+  - documentation
+
 clear-history-draft: true
 
 time-format: '06/01/02 15:04:05'
@@ -81,6 +85,8 @@ time-location: 'Asia/Taipei'
 except_releases:
   - tag: 'v1.0.1'           # require
     name: '230510 00:01:51' # option
+
+except_keyword: '#jump'
 ```
 #### name-template && tag-template
 
@@ -121,6 +127,10 @@ Both `name-template` and `tag-template` support the following placeholders:
 
 - `show`: A boolean value that determines whether to include unmatched pull requests. The default value is `false`.
 - `title`: The title for the section that includes unmatched pull requests. The default value is `'OTHER'`.
+
+#### category-except-labels
+
+`category-except-labels` Specifies an array of labels. Pull requests with any of these labels will be excluded from the release notes.
 
 #### clear-history-draft
 
@@ -183,6 +193,11 @@ You don't need to write this parameter for every release you want to exclude. Yo
 - `name`: ，
   - Optional parameters.
   - The title of the release is provided as a parameter because there is a small possibility that two releases are bound to the same tag, but you only want to delete one of them. In this case, you can use the name parameter to more accurately find the release you want to delete.
+
+#### except_keyword
+
+The functionality of `except_keyword` is similar to `except_releases`. The difference is that `except_keyword` specifies a keyword, and when the title of a release contains that keyword, the release will be skipped. The process continues until a release that is not excluded is found, and that release is used as the reference time point.
+
 
 ## Conclusion
 
