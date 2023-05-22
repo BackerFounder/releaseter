@@ -13,6 +13,6 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v3
-      - uses: JZGoopi/releaseter@v1
+      - uses: BackerFounder/releaseter@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}

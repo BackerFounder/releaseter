@@ -17,8 +17,8 @@ runs:
   steps:
     - uses: actions/checkout@v3
       with:
-        repository: 'JZGoopi/releaseter'
-        path: 'JZGoopi/releaseter'
+        repository: 'BackerFounder/releaseter'
+        path: 'BackerFounder/releaseter'
     - uses: actions/setup-go@v4
       with:
         go-version: '^1.19'
