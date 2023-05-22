@@ -26,8 +26,8 @@ runs:
       env:
         GITHUB_TOKEN: ${{ inputs.github-token }}
         JZGOOPI_REPEASETER_CONFIG_PATH: ${{ inputs.config-path }}
-        JZGOOPI_PATH: ${{ github.workspace }}/JZGoopi
-        JZGOOPI_REPEASETER_WS_PATH: ${{ github.workspace }}/JZGoopi/releaseter
+        JZGOOPI_PATH: ${{ github.workspace }}/BackerFounder
+        JZGOOPI_REPEASETER_WS_PATH: ${{ github.workspace }}/BackerFounder/releaseter
       run: |
         cd $JZGOOPI_REPEASETER_WS_PATH
         go mod tidy
